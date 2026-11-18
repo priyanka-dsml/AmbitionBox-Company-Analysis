@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graph View</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h2 class="dashboard-title">Graph Dashboard</h2>
+
+<div class="graph-container">
+
+    <h3>Industry Graph</h3>
+    <img src="{{ url_for('static', filename='bar.png') }}">
+
+    <h3>City Graph</h3>
+    <img src="{{ url_for('static', filename='pie.png') }}">
+
+</div>
+
+
+</body>
+</html>

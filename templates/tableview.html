@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Table View</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h2 class="dashboard-title">Table View</h2>
+
+<div class="table-container">
+
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Rating</th>
+            <th>Industry</th>
+            <th>City</th>
+            <th>Metro</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.company_name }}</td>
+            <td>{{ row.rating }}</td>
+            <td>{{ row.industry }}</td>
+            <td>{{ row.city }}</td>
+            <td>{{ row.metro_city }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+
+</body>
+</html>

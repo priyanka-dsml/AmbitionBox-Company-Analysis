@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AmbitionBox Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 🔹 TITLE -->
+    <h1 class="title">Company Dashboard</h1>
+
+    <!-- 🔹 FILTERS -->
+    <form method="get" class="filters">
+
+        <input type="text" name="search" placeholder="Search Company">
+
+        <select name="city">
+            <option value="">Select City</option>
+            {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="industry">
+            <option value="">Select Industry</option>
+            {% for industry in industries %}
+                <option value="{{ industry }}">{{ industry }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="number" step="0.1" name="rating" placeholder="Min Rating">
+
+        <button type="submit">Apply</button>
+
+    </form>
+
+    <!-- 🔹 GRAPH -->
+    <div class="graph-container">
+        <h3>Industry Distribution</h3>
+        <img src="{{ url_for('static', filename='bar.png') }}">
+    </div>
+
+    <!-- 🔹 TABLE -->
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Rating</th>
+                    <th>Industry</th>
+                    <th>City</th>
+                    <th>Metro</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row.company_name }}</td>
+                    <td>{{ row.rating }}</td>
+                    <td>{{ row.industry }}</td>
+                    <td>{{ row.city }}</td>
+                    <td>{{ row.metro_city }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
